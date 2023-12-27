@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+message User {
+  string login = 1;
+  int32 id = 2;
+  string node_id = 3;
+  string avatar_url = 4;
+  string gravatar_id = 5;
+  string url = 6;
+  string html_url = 7;
+  string followers_url = 8;
+  string following_url = 9;
+  string gists_url = 10;
+  string starred_url = 11;
+  string subscriptions_url = 12;
+  string organizations_url = 13;
+  string repos_url = 14;
+  string events_url = 15;
+  string received_events_url = 16;
+  string type = 17;
+  bool site_admin = 18;
+}
+
+message ClosedBy {
+  string login = 19;
+  int32 id = 20;
+  string node_id = 21;
+  string avatar_url = 22;
+  string gravatar_id = 23;
+  string url = 24;
+  string html_url = 25;
+  string followers_url = 26;
+  string following_url = 27;
+  string gists_url = 28;
+  string starred_url = 29;
+  string subscriptions_url = 30;
+  string organizations_url = 31;
+  string repos_url = 32;
+  string events_url = 33;
+  string received_events_url = 34;
+  string type = 35;
+  bool site_admin = 36;
+}
+
+message Reactions {
+  string url = 1;
+  int32 total_count = 2;
+  int32 plus_one = 3;
+  int32 minus_one = 4;
+  int32 laugh = 5;
+  int32 hooray = 6;
+  int32 confused = 7;
+  int32 heart = 8;
+  int32 rocket = 9;
+  int32 eyes = 10;
+}
+
+message ApiResponse {
+  string url = 1;
+  string repository_url = 2;
+  string labels_url = 3;
+  string comments_url = 4;
+  string events_url = 5;
+  string html_url = 6;
+  int32 id = 7;
+  string node_id = 8;
+  int32 number = 9;
+  string title = 10;
+  User user = 11;
+  repeated string labels = 12;
+  string state = 13;
+  bool locked = 14;
+  User assignee = 15;
+  repeated User assignees = 16;
+  string milestone = 17;
+  int32 comments = 18;
+  string created_at = 19;
+  string updated_at = 20;
+  string closed_at = 21;
+  string author_association = 22;
+  string active_lock_reason = 23;
+  string body = 24;
+  optional ClosedBy closed_by = 25;
+  Reactions reactions = 26;
+  string timeline_url = 27;
+  string performed_via_github_app = 28;
+  string state_reason = 29;
+}
+
+message ApiResponses {
+  repeated ApiResponse response = 1;
+}
