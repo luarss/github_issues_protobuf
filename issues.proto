@@ -72,7 +72,7 @@ message ApiResponse {
   bool locked = 14;
   User assignee = 15;
   repeated User assignees = 16;
-  string milestone = 17;
+  optional string milestone = 17;
   int32 comments = 18;
   string created_at = 19;
   string updated_at = 20;
@@ -85,6 +85,27 @@ message ApiResponse {
   string timeline_url = 27;
   string performed_via_github_app = 28;
   string state_reason = 29;
+}
+
+message Comment {
+  string url = 1;
+  string html_url = 2;
+  string issue_url = 3;
+  int32 id = 4;
+  string node_id = 5;
+  User user = 6;
+  string created_at = 7;
+  string updated_at = 8;
+  string author_association = 9;
+  string body = 10;
+  Reactions reactions = 11;
+  // "performed_via_github_app" can be represented as a string, assuming it's nullable.
+  // If it has specific values, define an enum for them.
+  string performed_via_github_app = 12;
+}
+
+message CommentList {
+  repeated Comment comment = 1;
 }
 
 message ApiResponses {
